@@ -73,7 +73,7 @@ function finalMsg([yourScore, computerScore]){
     }
 }
 
-function rpsFrontEnd(humanChoice, botChoice, finalmsg){
+function rpsFrontEnd(humanImageChoice, botImageChoice, finalmsg){
     var imagesDataBase = {
         'rock': document.getElementById('rock').src,
         'paper':document.getElementById('paper').src,
@@ -84,4 +84,23 @@ function rpsFrontEnd(humanChoice, botChoice, finalmsg){
     document.getElementById('rock').remove();
     document.getElementById('paper').remove();
     document.getElementById('scissors').remove();
+
+    var humanDiv = document.createElement('div');
+    var botDiv = document.createElement('div');
+    var msgDiv = document.createElement('div');  
+
+    humanDiv.innerHTML = "<img src ='" + imagesDataBase[humanImageChoice] + "' height = 150 width = 150 style = 'box-shadow: 0px 10px 50px rgba(37, 50, 233, 1);'>"
+
+    document.getElementById('flex-box-rps-div').appendChild(humanDiv);
+
+    msgDiv.innerHTML = "<h1 style = 'color: " + finalmsg['color'] + "; font size: 60px; padding: 30px; '>" + finalmsg['message'] + "</h1>"
+
+    document.getElementById('flex-box-rps-div').appendChild(msgDiv);
+
+    botDiv.innerHTML = "<img src ='" + imagesDataBase[botImageChoice] + "'height = 150 width = 150 style ='box-shadow: 0px 10px 50px rgba(243, 38, 24, 1);'>"
+
+    document.getElementById('flex-box-rps-div').appendChild(botDiv);
+
+
+
 }
